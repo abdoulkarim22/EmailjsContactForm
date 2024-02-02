@@ -41,19 +41,21 @@
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const message = document.getElementById("message").value;
+    const phone = document.getElementById("phone").value;
   
     const serviceID = "service_7jbo24h";
     const templateID = "template_nig6ruo";
 
-    if (name === "" || email === "" || message === "") {
+    if (name === "" || email === "" || message === "" ||  phone === "") {
       alert("Please fill in all fields before submitting.");
     } else {
-      emailjs.send(serviceID, templateID, {name: name, email: email, message: message})
+      emailjs.send(serviceID, templateID, {name: name, email: email, message: message, phone: phone})
       .then(res=>{
         alert("Your message was sent successfully!!");
         document.getElementById("name").value = "";
         document.getElementById("email").value = "";
         document.getElementById("message").value = "";
+        document.getElementById("phone").value = "";
       })
       .catch(err=>console.log(err));
     }
